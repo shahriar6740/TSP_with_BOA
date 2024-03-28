@@ -38,7 +38,7 @@ def travelling_salesman_problem(graph, s):
 
 	for i in next_permutation:
 		
-		print(f"current permutation: {i}")
+		
 
 		# store current Path weight(cost) 
 		current_pathweight = 0
@@ -54,11 +54,11 @@ def travelling_salesman_problem(graph, s):
 			
 		current_pathweight += graph[k][s]
 		
-		print(current_pathweight)
 
 		# update minimum 
 		min_path = min(min_path, current_pathweight)
 		
+		print(f"current permutation: {i} and cost: {current_pathweight}")
 		
 	return min_path 
 
