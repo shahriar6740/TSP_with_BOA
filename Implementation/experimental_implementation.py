@@ -12,6 +12,7 @@ cities = [
     [8, 3, 20, 2, 0]
 ]
 
+# ----- For 4 cities --------
 # cities = [
 #     [0, 12, 10, 19],
 #     [12, 0, 3, 7],
@@ -39,17 +40,17 @@ def distance(city1, city2):
     return np.sqrt((city1[0] - city2[0]) ** 2 + (city1[1] - city2[1]) ** 2)
 
 
-# print(distance(cities['C'],cities['A']) + distance(cities['A'],cities['B']) )
 # Calculate total distance of a route
 def total_distance(route):
     dist = 0
-    # C A B E D
+
     for i in range(len(route) - 1):
         from_city = route[i]
         to_city = route[i+1]
         dist += cities[from_city][to_city]
 
-    dist += cities[route[-1]][route[0]]  # Return to the starting city
+    # Return to the starting city
+    dist += cities[route[-1]][route[0]]  
     return dist
 
 # Initialize population with random permutations of cities with city C as starting position
@@ -57,19 +58,18 @@ def initialize_population(population_size, cities):
     population = []
     for _ in range(population_size):
         city_list = list(range(len(cities)))
-        print(city_list)
+
         city_list.remove(SOURCE)
         route = city_list
-
-        # route = list(cities.keys() - {'C'}) # range(len(cities)
 
         np.random.shuffle(route)
         # print(route)
         route.insert(0, SOURCE)
         population.append(tuple(route))
-    print(len(population))
 
-    print(len({s for s in population}))
+    print(f"Population permutation list: {len(population)}")
+
+    print(f"Population permutation set:{len({s for s in population})}")
 
     return list({s for s in population})
 
@@ -82,26 +82,26 @@ def move_butterflies_tsp(population, best_solution):
         for i in range(len(route)):
             if np.random.rand() < 0.5:
                 city1, city2 = np.random.choice(len(route), 2, replace=False)
-                print(city1,city2)
                 
                 butterfly_route[city1], butterfly_route[city2] = butterfly_route[city2], butterfly_route[city1]
 
         new_population.append(butterfly_route)
-    # print(f"new population: {new_population}")
+
     return new_population
 
 # Butterfly Optimization Algorithm for TSP
 def butterfly_optimization_tsp(population_size, cities, max_iterations):
     population = initialize_population(population_size, cities)
     best_solution = min(population, key=lambda x: total_distance(x))
-    # print(best_solution)
 
     for _ in range(max_iterations):
         population = move_butterflies_tsp(population, best_solution)
         new_best_solution = min(population, key=lambda x: total_distance(x))
+
         if total_distance(new_best_solution) < total_distance(best_solution):
             best_solution = new_best_solution
-    print(best_solution)
+
+    print(f"Best Path index:{best_solution}")
 
     return best_solution, total_distance(best_solution)
 
