@@ -8,6 +8,8 @@ class Constants:
     POPULATION_SIZE = 20
     MAX_ITERATION = 100
 
+    SOURCE = 0
+
     FIVE_CITIES = [
     [0, 12, 10, 19, 8],
     [12, 0, 3, 7, 2],
