@@ -1,27 +1,29 @@
 import numpy as np
 class Butterfly:
 
-    def initialize_population(self, population_size, cities):
+    def initialize_population(self, population_size, cities, source):
         population = []
         for _ in range(population_size):
             city_list = list(range(len(cities)))
 
-            city_list.remove(SOURCE)
+            city_list.remove(source)
             route = city_list
 
             np.random.shuffle(route)
             # print(route)
-            route.insert(0, SOURCE)
+            route.insert(0, source)
             population.append(tuple(route))
 
-        print(f"Population permutation list: {len(population)}")
+        print(f"Number of Population permutation list: {len(population)}")
 
-        print(f"Population permutation set:{len({s for s in population})}")
+        print(f"Number of Unique Population permutation:{len({s for s in population})}")
+
+        print(f"Unique Population permutations:{list({s for s in population})}")
 
         return list({s for s in population})
     
 
-    def move_butterflies_tsp(self, population, best_solution):
+    def move_butterflies_global_tsp(self, population):
         new_population = []
         for route in population:
 
