@@ -34,6 +34,11 @@ To run the project isolated, please install Python version 3.10 or higher. Creat
   ```
   python experimental_implementation.py
   ```
-    
+# For structured project-like implementation
+**RUN**
+```
+python TSP_main.py
+```
+And then backtrack each class/function. <br>
 
 Final Report of the project is available [here](https://docs.google.com/document/d/1GV8eV1vXBX2hXU0qtY7MYGdHoHoreN6zfsfpfzBqD4A/edit?usp=sharing)
