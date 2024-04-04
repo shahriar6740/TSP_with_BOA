@@ -41,4 +41,5 @@ python TSP_main.py
 ```
 And then backtrack each class/function. <br>
 
-Final Report of the project is available [here](https://docs.google.com/document/d/1GV8eV1vXBX2hXU0qtY7MYGdHoHoreN6zfsfpfzBqD4A/edit?usp=sharing)
+Final Report of the project is available [here](https://docs.google.com/document/d/1GV8eV1vXBX2hXU0qtY7MYGdHoHoreN6zfsfpfzBqD4A/edit?usp=sharing) <br>
+Final Presentation Slide is available [here](https://docs.google.com/presentation/d/1A0Lu2wP1APy0EfRrgbbs8Y5ncbVd8Ri0qafXFgwd-7M/edit?usp=sharing)
